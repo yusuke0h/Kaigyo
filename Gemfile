@@ -35,6 +35,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'google-analytics-rails'
 
 
 # Use ActiveModel has_secure_password
