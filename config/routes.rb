@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'kaigyo#index', as: '/', via: [:get, :post]
+  # post 'kaigyo/kaigyo_process'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

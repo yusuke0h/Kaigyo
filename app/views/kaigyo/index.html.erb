@@ -1,0 +1,12 @@
+<h1>自動改行</h1>
+
+<%= simple_form_for :data, action: 'kaigyo#index' , method: :post, html: { class: 'form-horizontal' } do |f| %>
+  <%= f.input :text, as: :text %>
+  <%= f.input :num, as: :integer %>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
+<hr>
+
+<%= @processed_text.html_safe if @processed_text %>
