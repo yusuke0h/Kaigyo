@@ -8,7 +8,7 @@ class KaigyoController < ApplicationController
     end
 
     lines = []
-    text = data[:text].strip.gsub("\r", "")
+    text = data[:text].strip.gsub("\r", '')
     text.split("\n").each do |line|
       if line.size / num > 0
         0.upto(line.size / num) do |term|
@@ -18,6 +18,6 @@ class KaigyoController < ApplicationController
         lines << line
       end
     end
-    @processed_text = lines.join("<br>")
+    @processed_text = lines.join('<br>')
   end
 end
