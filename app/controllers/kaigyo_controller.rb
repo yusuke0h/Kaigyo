@@ -4,22 +4,18 @@ class KaigyoController < ApplicationController
     return unless data
     num = data[:num].to_i == 0 ? 30 : data[:num].to_i
 
-    lines = []
-
     formatted_text =
       data[:text]
       .strip
       .gsub("\r", '')
       .split("\n")
 
+    lines = []
+
     formatted_text.each do |line|
-      if line.size / num > 0
-        0.upto(line.size / num) do |term|
-          lines << line[num*term..num*(term+1)-1]
-        end
-      else
-        lines << line
-      end
+      line
+        .scan(/.{1,#{num}}/)
+        .map { |chopped_line| lines << chopped_line }
     end
     @processed_text = lines.join('<br>')
   end
