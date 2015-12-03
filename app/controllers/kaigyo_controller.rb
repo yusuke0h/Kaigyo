@@ -1,13 +1,14 @@
 class KaigyoController < ApplicationController
   def index
-    return unless params[:data]
-    num = params[:data][:num].to_i
+    data = params[:data]
+    return unless data
+    num = data[:num].to_i
     if num == 0
       num = 30
     end
 
     lines = []
-    text = params[:data][:text].strip.gsub("\r", "")
+    text = data[:text].strip.gsub("\r", "")
     text.split("\n").each do |line|
       if line.size / num > 0
         0.upto(line.size / num) do |term|
