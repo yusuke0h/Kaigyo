@@ -2,10 +2,7 @@ class KaigyoController < ApplicationController
   def index
     data = params[:data]
     return unless data
-    num = data[:num].to_i
-    if num == 0
-      num = 30
-    end
+    num = data[:num].to_i == 0 ? 30 : data[:num].to_i
 
     lines = []
     text = data[:text].strip.gsub("\r", '')
