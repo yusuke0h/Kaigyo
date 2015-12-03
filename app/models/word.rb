@@ -1,24 +1,24 @@
 class Word
-  def initialize(params)
-    @length = params[:num]
-    @text = params[:text]
-    self
+  def initialize(data)
+    @length = data[:num]
+    @text = data[:text]
   end
 
-  def length_of_line
-    @length.to_i == 0 ? 30 : @length.to_i
+  def format
+    to_a
+    to_s
   end
 
-  def format_text
-    @formatted_text =
+  def to_a
+    @lines =
       @text
       .strip
       .split("\n")
-    self
   end
 
-  def push_to_lines
-    @formatted_text.map { |line| line.scan(/.{1,#{@length}}/) }
+  def to_s
+    @lines
+      .map { |line| line.scan(/.{1,#{@length}}/) }
       .flatten
       .join('<br>')
   end
