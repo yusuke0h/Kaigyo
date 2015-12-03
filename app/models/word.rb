@@ -9,6 +9,8 @@ class Word
     to_s
   end
 
+  private
+
   def to_a
     @lines =
       @text
