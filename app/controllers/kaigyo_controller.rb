@@ -5,8 +5,14 @@ class KaigyoController < ApplicationController
     num = data[:num].to_i == 0 ? 30 : data[:num].to_i
 
     lines = []
-    text = data[:text].strip.gsub("\r", '')
-    text.split("\n").each do |line|
+
+    formatted_text =
+      data[:text]
+      .strip
+      .gsub("\r", '')
+      .split("\n")
+
+    formatted_text.each do |line|
       if line.size / num > 0
         0.upto(line.size / num) do |term|
           lines << line[num*term..num*(term+1)-1]
